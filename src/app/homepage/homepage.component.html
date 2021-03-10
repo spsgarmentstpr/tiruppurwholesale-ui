@@ -1,0 +1,32 @@
+
+  <!-- !PAGE CONTENT! -->
+  
+    <!-- Push down content on small screens -->
+    
+      
+    
+    <!-- Top header -->
+    <header class="tiruppurwholesale-container tiruppurwholesale-xlarge pt-2">
+      <p class="tiruppurwholesale-left">{{itemList.type | titlecase}}</p>
+      <p class="tiruppurwholesale-right">
+        <i class="fa fa-shopping-cart tiruppurwholesale-margin-right"></i>
+        <i class="fa fa-search"></i>
+      </p>
+    </header>
+  
+  
+  
+    <!-- Product grid -->
+    <div class="tiruppurwholesale-row tiruppurwholesale-grayscale">
+      <div class="tiruppurwholesale-col l3 s6" *ngFor="let item of items">
+        <div class="tiruppurwholesale-container" (click)="renderEnquiryForm(item)">
+          <img src="{{item.img}}" style="width:100%" />
+          <p>{{item.itemName}}<br><b>{{item.price | currency:"₹"}}/{{item.units}}</b></p>
+        </div>
+      </div>
+    </div>
+    
+  
+    <!-- End page content -->
+ 
+  

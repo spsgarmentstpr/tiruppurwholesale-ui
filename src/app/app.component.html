@@ -1,0 +1,83 @@
+
+
+<!-- Sidebar/menu -->
+<nav class="tiruppurwholesale-sidebar tiruppurwholesale-bar-block tiruppurwholesale-white tiruppurwholesale-collapse tiruppurwholesale-top" style="z-index:3;width:250px" id="tiruppurwholesale-sidebar">
+  <div class="tiruppurwholesale-container tiruppurwholesale-display-container tiruppurwholesale-padding-16">
+    <i (click)="tiruppurwholesale_close()" class="fa fa-remove tiruppurwholesale-hide-large tiruppurwholesale-button tiruppurwholesale-display-topright"></i>
+    <h4 class="tiruppurwholesale-wide" id="tiruppurwholesale"><b>tiruppurwholesale</b></h4>
+  </div>
+  <div class="tiruppurwholesale-padding-64 tiruppurwholesale-large tiruppurwholesale-text-grey" style="font-weight:bold">
+    <a  (click)="typeSelected('mens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Mens</a>
+    <a  (click)="typeSelected('womens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Womens</a>
+    <a href="javascript:void(0)" (click)="typeSelected('kids')" class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-left-align" id="myBtn">
+      Kids 
+    </a>
+   
+    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" (click)="typeSelected('boys')">Boys</a>
+    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" (click)="typeSelected('girls')">Girls</a>
+  </div>
+  <a href="#footer" class="tiruppurwholesale-bar-item tiruppurwholesale-button tiruppurwholesale-padding-64">Contact</a> 
+  </nav>
+
+<!-- Top menu on small screens -->
+<header class="tiruppurwholesale-bar tiruppurwholesale-top tiruppurwholesale-hide-large tiruppurwholesale-black tiruppurwholesale-xlarge">
+  <div class="tiruppurwholesale-bar-item tiruppurwholesale-padding-24 tiruppurwholesale-wide">LOGO</div>
+  <a href="javascript:void(0)" class="tiruppurwholesale-bar-item tiruppurwholesale-button tiruppurwholesale-padding-24 tiruppurwholesale-right" (click)="tiruppurwholesale_open()"><i class="fa fa-bars"></i></a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="tiruppurwholesale-overlay tiruppurwholesale-hide-large" (click)="tiruppurwholesale_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<div class="tiruppurwholesale-main" style="margin-left:250px">
+
+  <div class="tiruppurwholesale-hide-large" style="margin-top:83px"></div>
+
+  <div *ngIf="isNavigate"><app-homepage [itemList] = "itemList" (hideEvent)='hide($event)'></app-homepage></div>
+  <div *ngIf="!isNavigate"><app-enquiry-form [item]= "selectedItem"></app-enquiry-form></div>
+
+    <!-- Footer -->
+    <footer class="tiruppurwholesale-padding-64 tiruppurwholesale-light-grey tiruppurwholesale-small tiruppurwholesale-center" id="footer">
+      <div class="tiruppurwholesale-row-padding">
+        <div class="tiruppurwholesale-col s4">
+          <h4>Contact</h4>
+          <p>Questions? Go ahead.</p>
+          
+            <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Name" name="Name" required></p>
+            <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Email" name="Email" required></p>
+            <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Subject" name="Subject" required></p>
+            <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Message" name="Message" required></p>
+            <button type="submit" class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-black">Send</button>
+          
+        </div>
+  
+        <div class="tiruppurwholesale-col s4">
+          <!-- <h4>About</h4>
+          <p><a href="#">About us</a></p>
+          <p><a href="#">We're hiring</a></p>
+          <p><a href="#">Support</a></p>
+          <p><a href="#">Find store</a></p>
+          <p><a href="#">Shipment</a></p>
+          <p><a href="#">Payment</a></p>
+          <p><a href="#">Gift card</a></p>
+          <p><a href="#">Return</a></p>
+          <p><a href="#">Help</a></p> -->
+        </div>
+  
+        <div class="tiruppurwholesale-col l8 s4 tiruppurwholesale-center">
+          
+            <h4>Store</h4>
+            <p><i class="fa fa-fw fa-map-marker"></i> Tiruppur Wholesale</p>
+            <p><i class="fa fa-fw fa-phone"></i> +918248211229</p>
+            <p><i class="fa fa-fw fa-envelope"></i> spsgarmentstpr@gmail.com</p>
+            <br>
+            <i class="fa fa-facebook-official tiruppurwholesale-hover-opacity tiruppurwholesale-large"></i>
+            <i class="fa fa-instagram tiruppurwholesale-hover-opacity tiruppurwholesale-large"></i>
+          
+        </div>
+      </div>
+    </footer>
+    <div class="tiruppurwholesale-black tiruppurwholesale-center tiruppurwholesale-padding-24"><a href="https://tiruppurwholesale.com/" title="W3.CSS" target="_blank" class="tiruppurwholesale-hover-opacity">tiruppurwholesale.com</a></div>
+  </div>
+
+  <!-- <app-homepage [itemList]="itemList"></app-homepage> -->
+

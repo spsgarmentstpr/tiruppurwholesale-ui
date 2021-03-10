@@ -1,0 +1,10 @@
+{
+    "/home": {
+      "target": "http://192.168.0.93:8080/home",
+      "secure": false,
+      "changeOrigin": true,
+      "pathRewrite": {
+        "^/home": ""
+      }
+    }
+  }
