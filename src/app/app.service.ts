@@ -10,11 +10,17 @@ header.set('Access-Control-Allow-Origin', '*');
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AppService {
 
   constructor(private http: HttpClient) { }
 
 
+  enquiry(userDetails:any):any{
+    return this.http.post('http://tiruppurwholesale.com:8080/userdetails',userDetails).subscribe(obj => true);
+    
+  }
 
   getCategories():any[] {
     let allCategories = [

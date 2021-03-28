@@ -4,16 +4,16 @@
 <nav class="tiruppurwholesale-sidebar tiruppurwholesale-bar-block tiruppurwholesale-white tiruppurwholesale-collapse tiruppurwholesale-top" style="z-index:3;width:250px" id="tiruppurwholesale-sidebar">
   <div class="tiruppurwholesale-container tiruppurwholesale-display-container tiruppurwholesale-padding-16">
     <i (click)="tiruppurwholesale_close()" class="fa fa-remove tiruppurwholesale-hide-large tiruppurwholesale-button tiruppurwholesale-display-topright"></i>
-    <h4 class="tiruppurwholesale-wide" id="tiruppurwholesale"><b>tiruppurwholesale</b></h4>
+    <h4 class="tiruppurwholesale-wide" id="tiruppurwholesale" (click)="isNavigate=true"><b>tiruppurwholesale</b></h4>
   </div>
   <div class="tiruppurwholesale-padding-64 tiruppurwholesale-large tiruppurwholesale-text-grey" style="font-weight:bold">
-    <a  (click)="typeSelected('mens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Mens</a>
+    <a  (click)="typeSelected('mens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button" hidden>Mens</a>
     <a  (click)="typeSelected('womens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Womens</a>
-    <a href="javascript:void(0)" (click)="typeSelected('kids')" class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-left-align" id="myBtn">
+    <a href="javascript:void(0)" (click)="typeSelected('kids')" hidden class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-left-align" id="myBtn">
       Kids 
     </a>
    
-    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" (click)="typeSelected('boys')">Boys</a>
+    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" hidden (click)="typeSelected('boys')">Boys</a>
     <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" (click)="typeSelected('girls')">Girls</a>
   </div>
   <a href="#footer" class="tiruppurwholesale-bar-item tiruppurwholesale-button tiruppurwholesale-padding-64">Contact</a> 
@@ -33,7 +33,11 @@
   <div class="tiruppurwholesale-hide-large" style="margin-top:83px"></div>
 
   <div *ngIf="isNavigate"><app-homepage [itemList] = "itemList" (hideEvent)='hide($event)'></app-homepage></div>
-  <div *ngIf="!isNavigate"><app-enquiry-form [item]= "selectedItem"></app-enquiry-form></div>
+  <div *ngIf="!isNavigate" class="container mb-2">
+    <div>
+      <app-enquiry-form [item]= "selectedItem"></app-enquiry-form>
+    </div>
+  </div>
 
     <!-- Footer -->
     <footer class="tiruppurwholesale-padding-64 tiruppurwholesale-light-grey tiruppurwholesale-small tiruppurwholesale-center" id="footer">
@@ -42,11 +46,40 @@
           <h4>Contact</h4>
           <p>Questions? Go ahead.</p>
           
-            <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Name" name="Name" required></p>
+          <form [formGroup]="enquiryForm" (ngSubmit)="submitForm()">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" formControlName="name" id="name" placeholder="Enter Your Full Name" />
+              <span class="text-danger" *ngIf="!enquiryForm.controls.name.valid && !enquiryForm.controls.name.pristine">Name is Required</span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email ID</label>
+              <input type="text" formControlName="emailId" class="form-control" id="email" aria-describedby="emailHelp"
+                placeholder="Enter Email ID">
+              <span class="text-danger" *ngIf="!enquiryForm.controls.emailId.valid && !enquiryForm.controls.emailId.pristine">Enter a Valid Email ID</span>
+              
+            </div>
+            <div class="form-group">
+              <label for="mobile">Mobile Number</label>
+              <input type="tel" formControlName="mobile" class="form-control" id="mobile" aria-describedby="mobileHelp"
+                placeholder="Enter 10 digit mobile Number" />
+              
+                <span class="text-danger" *ngIf="!enquiryForm.controls.mobile.valid && !enquiryForm.controls.mobile.pristine">Enter a valid Mobile Number</span>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea name="message" formControlName="message" id="message" class="form-control" cols="30" rows="5"
+                placeholder="Enter your query we will get back to you soon"></textarea>
+                <span class="text-danger" *ngIf="!enquiryForm.controls.message.valid && !enquiryForm.controls.message.pristine">Message is Required</span>
+            </div>
+            <button class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-black" type="submit" [disabled]="!enquiryForm.valid" >Submit</button>
+            
+          </form>
+            <!-- <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Name" name="Name" required></p>
             <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Email" name="Email" required></p>
             <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Subject" name="Subject" required></p>
             <p><input class="tiruppurwholesale-input tiruppurwholesale-border" type="text" placeholder="Message" name="Message" required></p>
-            <button type="submit" class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-black">Send</button>
+            <button type="submit" class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-black">Send</button> -->
           
         </div>
   
@@ -70,8 +103,8 @@
             <p><i class="fa fa-fw fa-phone"></i> +918248211229</p>
             <p><i class="fa fa-fw fa-envelope"></i> spsgarmentstpr@gmail.com</p>
             <br>
-            <i class="fa fa-facebook-official tiruppurwholesale-hover-opacity tiruppurwholesale-large"></i>
-            <i class="fa fa-instagram tiruppurwholesale-hover-opacity tiruppurwholesale-large"></i>
+            <a href="https://www.facebook.com/sps.garments.7" target="_blank" class="mr-1"><i class="fa fa-facebook-official tiruppurwholesale-hover-opacity tiruppurwholesale-large" ></i></a>
+            <a href="https://www.instagram.com/spsgarments/" target="_blank"><i class="fa fa-instagram tiruppurwholesale-hover-opacity tiruppurwholesale-large"></i></a>
           
         </div>
       </div>

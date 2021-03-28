@@ -1,7 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { AppService } from '../app.service';
-// import 'rxjs/add/operator/switchMap';
 
 @Component({
   selector: 'app-homepage',
@@ -16,22 +14,21 @@ export class HomepageComponent implements OnInit {
 
   @Output() hideEvent = new EventEmitter<void>();
 
-  constructor(private service : AppService, private router: Router, private route: ActivatedRoute) { 
+  constructor(private service : AppService) { 
     this.items = this.itemList && this.itemList.items;
     this.selected = false;
   }
 
   ngOnInit(): void {
     this.items = this.itemList && this.itemList.items;
-    console.log(this.itemList);
-    console.log(this.itemList.items);
-    console.log(this.items);
+
     
   }
   ngOnChanges(): void {
     // this.updateValues();
     console.log(this.itemList);
     console.log(this.itemList.items);
+    this.items = this.itemList && this.itemList.items;
   }
 
   updateValues():void {

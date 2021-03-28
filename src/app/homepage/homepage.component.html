@@ -8,20 +8,20 @@
     <!-- Top header -->
     <header class="tiruppurwholesale-container tiruppurwholesale-xlarge pt-2">
       <p class="tiruppurwholesale-left">{{itemList.type | titlecase}}</p>
-      <p class="tiruppurwholesale-right">
+      <!-- <p class="tiruppurwholesale-right">
         <i class="fa fa-shopping-cart tiruppurwholesale-margin-right"></i>
         <i class="fa fa-search"></i>
-      </p>
+      </p> -->
     </header>
   
   
   
     <!-- Product grid -->
-    <div class="tiruppurwholesale-row tiruppurwholesale-grayscale">
+    <div class="tiruppurwholesale-row tiruppurwholesale-grayscale" id="tiruppurwholesaleItemList">
       <div class="tiruppurwholesale-col l3 s6" *ngFor="let item of items">
         <div class="tiruppurwholesale-container" (click)="renderEnquiryForm(item)">
-          <img src="{{item.img}}" style="width:100%" />
-          <p>{{item.itemName}}<br><b>{{item.price | currency:"₹"}}/{{item.units}}</b></p>
+          <img src="{{item.img}}" style="width:100%" height="300px" />
+          <h6 class="font-weight-bold text-center">{{item.itemName}}</h6>
         </div>
       </div>
     </div>
