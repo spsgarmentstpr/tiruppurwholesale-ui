@@ -1,20 +1,20 @@
 
 
 <!-- Sidebar/menu -->
-<nav class="tiruppurwholesale-sidebar tiruppurwholesale-bar-block tiruppurwholesale-white tiruppurwholesale-collapse tiruppurwholesale-top" style="z-index:3;width:250px" id="tiruppurwholesale-sidebar">
+<nav class="tiruppurwholesale-sidebar tiruppurwholesale-bar-block tiruppurwholesale-white tiruppurwholesale-collapse tiruppurwholesale-top" style="z-index:3;width:300px" id="tiruppurwholesale-sidebar">
   <div class="tiruppurwholesale-container tiruppurwholesale-display-container tiruppurwholesale-padding-16">
     <i (click)="tiruppurwholesale_close()" class="fa fa-remove tiruppurwholesale-hide-large tiruppurwholesale-button tiruppurwholesale-display-topright"></i>
     <h4 class="tiruppurwholesale-wide" id="tiruppurwholesale" (click)="isNavigate=true"><b>tiruppurwholesale</b></h4>
   </div>
   <div class="tiruppurwholesale-padding-64 tiruppurwholesale-large tiruppurwholesale-text-grey" style="font-weight:bold">
     <a  (click)="typeSelected('mens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button" hidden>Mens</a>
-    <a  (click)="typeSelected('womens')" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Womens</a>
+    <a  (click)="typeSelected('womens')" href="#" class="tiruppurwholesale-bar-item tiruppurwholesale-button">Womens</a>
     <a href="javascript:void(0)" (click)="typeSelected('kids')" hidden class="tiruppurwholesale-button tiruppurwholesale-block tiruppurwholesale-left-align" id="myBtn">
       Kids 
     </a>
    
     <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" hidden (click)="typeSelected('boys')">Boys</a>
-    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" (click)="typeSelected('girls')">Girls</a>
+    <a class="tiruppurwholesale-bar-item tiruppurwholesale-button" href="#" (click)="typeSelected('girls')">Girls</a>
   </div>
   <a href="#footer" class="tiruppurwholesale-bar-item tiruppurwholesale-button tiruppurwholesale-padding-64">Contact</a> 
   </nav>
@@ -28,7 +28,7 @@
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="tiruppurwholesale-overlay tiruppurwholesale-hide-large" (click)="tiruppurwholesale_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
-<div class="tiruppurwholesale-main" style="margin-left:250px">
+<div class="tiruppurwholesale-main" style="margin-left:300px">
 
   <div class="tiruppurwholesale-hide-large" style="margin-top:83px"></div>
 
